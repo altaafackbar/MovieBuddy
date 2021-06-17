@@ -1,0 +1,13 @@
+<div class="search-container">
+    <form class="search-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <span class="logo" routerLink="/">MovieBuddy</span>
+      <input
+        class="search-input"
+        name="search"
+        ngModel
+        placeholder="Search all movies!"
+      />
+      <button class="search-button">Search</button>
+    </form>
+  </div>
+  

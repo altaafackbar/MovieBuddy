@@ -1,0 +1,41 @@
+
+<div class="filters">
+    <mat-form-field>
+      <mat-label>Sort</mat-label>
+      <mat-select
+        panelClass="sort-select"
+        [(ngModel)]="sort"
+        (selectionChange)="sortMovies(sort)"
+
+      >
+        <mat-option value="name">Name</mat-option>
+        <mat-option value="-released">Released</mat-option>
+        <mat-option value="-rating">Rating</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="movies">  
+      <ng-container *ngFor="let movie of movies">
+      <div class="movie" (click)="openMovieDetails(movie.id)">
+        <div class="movie-thumb-container">
+          <img
+          *ngIf="movie.backdrop_path"
+            src="https://www.themoviedb.org/t/p/original/{{movie.backdrop_path}}"
+            alt="thumbnail"
+            class="movie-thumbnail"
+          />
+          <p *ngIf="!movie.backdrop_path">No background image!</p>
+        </div>
+        <div class="movie-description">
+          <p class="movie-name">{{movie.title}}</p>
+          <p class="movie-rating">{{movie.vote_average}} &#9733;</p>
+
+        </div>
+      </div>
+    </ng-container>
+    
+  </div>
+  <div class="load-container">
+      <button (click)="loadMovies()" class="load-button" >Load More</button>
+  </div>

@@ -1,0 +1,20 @@
+<div class="details">
+    <div class="movie-banner">
+      <img
+        class="movie-banner-img"
+        src="https://www.themoviedb.org/t/p/original/{{movie.backdrop_path}}"
+        alt="background image"
+      />
+    </div>
+    <div class="movie-content">
+      <div class="details-wrapper">
+        <div class="movie-header">
+          <h1 class="movie-header-title">{{ movie.title }}</h1>
+          <h2 class="movie-header-release-date">
+            Released: {{ movie.release_date | date }}
+          </h2>
+        </div>
+        <app-movie-tabs [movie]="movie"></app-movie-tabs>
+      </div>
+    </div>
+  </div>
