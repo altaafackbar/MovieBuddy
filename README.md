@@ -13,7 +13,7 @@ WebApp built with Angular where users can browse popular movies, search for movi
 
 -Movie search
 
-<img src="2.PNG" width="600">
+<img src="3.PNG" width="600">
 -Users can search for movies and sort results
 
 
