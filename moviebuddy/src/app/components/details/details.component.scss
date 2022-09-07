@@ -39,21 +39,26 @@
         width: 100%;
         filter: blur(5px);
       }
+      
     }
   
     &-content {
       text-align: center;
       position: relative;
       top: -200px;
+
     }
   
     &-header {
       &-title {
         font-size: 70px;
         color: #fff;
+        text-shadow: -4px -0px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         font-weight: 700;
         line-height: 70px;
         white-space: nowrap;
+        align-items: center;
+        
       }
   
       &-release-date {
@@ -62,4 +67,18 @@
       }
 
     }
+
+    &-thumb-container {
+      height: 300px;
+      color: #fff;
+      text-align: center;
+    }
+  
+    &-thumbnail {
+      display: block;
+      height: 100%;
+      border-radius: 5px;
+    }
   }
+
+  

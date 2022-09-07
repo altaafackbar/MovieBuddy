@@ -47,6 +47,12 @@
     &-description {
       padding: 20px;
     }
+
+    &-trailer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
    
     &-screenshot {
       margin-top: 5px;

@@ -10,6 +10,15 @@
       <div class="details-wrapper">
         <div class="movie-header">
           <h1 class="movie-header-title">{{ movie.title }}</h1>
+          <div class="movie-thumb-container">
+            <img
+            *ngIf="movie.poster_path"
+              src="https://www.themoviedb.org/t/p/original/{{movie.poster_path}}"
+              alt="thumbnail"
+              class="movie-thumbnail"
+            />
+            <p *ngIf="!movie.poster_path">No movie poster!</p>
+          </div>
           <h2 class="movie-header-release-date">
             Released: {{ movie.release_date | date }}
           </h2>

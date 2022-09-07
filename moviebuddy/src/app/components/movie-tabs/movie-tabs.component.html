@@ -7,8 +7,12 @@
         </mat-tab>
 
         <mat-tab label="Trailers" *ngIf="movie.trailers">
+            <div class="movie-trailer">
+                <iframe width="720" height="480"
+                [src]="getEmbedURL(movie.trailers)">
+                </iframe>
+            </div>
 
-            <iframe width="560" height="315" src="{{movie.trailers}} | safe" frameborder="0" allowfullscreen></iframe>
 
           </mat-tab>
     </mat-tab-group>
