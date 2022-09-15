@@ -19,6 +19,7 @@
             />
             <p *ngIf="!movie.poster_path">No movie poster!</p>
           </div>
+          <p class="movie-rating">{{movie.vote_average}} &#9733;</p>
           <h2 class="movie-header-release-date">
             Released: {{ movie.release_date | date }}
           </h2>

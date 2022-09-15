@@ -57,10 +57,15 @@ this.httpService
         return parseFloat(b.vote_average) - parseFloat(a.vote_average);
     });
     }
-    else if(ordering == "-released"){
+    else if(ordering == "-oldest"){
       console.log("3");
       console.log(typeof(this.movies[1].vote_average));
       this.movies.sort((a,b) => a.release_date.localeCompare(b.release_date));
+    }
+    else if(ordering == "-newest"){
+      console.log("3");
+      console.log(typeof(this.movies[1].vote_average));
+      this.movies.sort((a,b) => b.release_date.localeCompare(a.release_date));
     }
     
 
@@ -74,7 +79,7 @@ this.httpService
   }
 
   loadMovies(): void{
-    
+    this.sortMovies(this.order);
     this.httpService
     .getMovieList(String(this.index))
     .subscribe((movieList: APIResponse<Movie>) => {
@@ -84,18 +89,10 @@ this.httpService
 
       console.log(this.movies);
     })
-    console.log(this.order);
     this.index = this.index + 1;
-    
-    if(this.order == "name"){
-      this.sortMovies("name");
-    }
-    else if(this.order == "-rating"){
-      this.sortMovies("-rating");
-    }
-    else if(this.order == "-released"){
-      this.sortMovies("-released");
-    }
+    console.log(this.order);
+
+    this.sortMovies(this.order);
     console.log("clicked");
     this.cdr.detectChanges();
   }
