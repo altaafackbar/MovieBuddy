@@ -1,14 +1,53 @@
 <div class="movie-tabs">
-    <mat-tab-group mat-align-tabs="start" backgroundColor="primary">
+    <mat-tab-group mat-align-tabs="start" class="movie-nav">
         <mat-tab label="About">
-            <p class="movie-description">Movie Overview: {{movie.overview}}</p>
-            <p class="movie-description">Budget: ${{movie.budget}}</p>
+            <div class="movie-description">
+                <p class="movie-bold">Movie Overview</p>
+                <p class="movie-text">{{movie.overview}}</p>
+            </div>
+            <div class="movie-description">
+                <p class="movie-bold">Budget</p>
+                <p class="movie-text">${{movie.budget}}</p>
+            </div>
+            <div class="movie-description">
+                <p class="movie-bold">Top Cast</p>
+            </div>
+                <div class="casts">  
+                    
+                    <ng-container *ngFor="let cast of casts">
+                    <div class="casts-set">
+                    <div class="cast">
+                      <div class="cast-thumb-container">
+                        <img
+                        *ngIf="cast.profile_path"
+                          src="https://www.themoviedb.org/t/p/original{{cast.profile_path}}"
+                          alt="thumbnail"
+                          class="cast-thumbnail"
+                        />
+                        
+                        <p *ngIf="!movie.poster_path">No movie poster!</p>
+                      </div>
+                      
+                    </div>
+                    <div class="casts-credit">
+                        <p class="movie-description">{{cast.name}} as</p>
+                        <p class="movie-bold">{{cast.character}}</p>
+                    </div>
+
+                </div>
+                  </ng-container>
+                  
+                </div>
 
         </mat-tab>
 
         <mat-tab label="Trailers" *ngIf="movie.trailers">
+            <div class="movie-trailer">
+                <iframe width="720" height="480"
+                [src]="getEmbedURL(movie.trailers)">
+                </iframe>
+            </div>
 
-            <iframe width="560" height="315" src="{{movie.trailers}} | safe" frameborder="0" allowfullscreen></iframe>
 
           </mat-tab>
     </mat-tab-group>

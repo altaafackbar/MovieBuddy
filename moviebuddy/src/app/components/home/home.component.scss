@@ -32,70 +32,82 @@
     }
   }
 
-  .movies {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 20px auto;
-  }
 
   .movies {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 20px auto;
   }
 
 
   .movie {
-  width: 280px;
+  width: 250px;
   margin: 10px;
-  height: 330px;
+  height: 380px;
   overflow: hidden;
+  position: relative;
   border-radius: 5px;
   background-color: #202020;
-  box-shadow: 4px 3px 8px 0px rgb(76 152 44 / 22%);
+  box-shadow: 4px 3px 8px 0px rgba(108, 161, 85, 0.22);
   transition-duration: 0.3s;
   cursor: pointer;
 
   &:hover {
-    box-shadow: 4px 3px 11px 6px rgb(300 152 44 / 46%);
+    box-shadow: 4px 3px 11px 6px rgba(63, 81, 181, 0.22);
     transform: translateY(-3px);
   }
 
   &-thumb-container {
     background-color: #000;
     position: relative;
-    height: 172px;
+    height: 100%;
     color: #fff;
     text-align: center;
   }
 
   &-thumbnail {
+    display: block;
+    height: 100%;
+  }
+
+  &-overlay{
+    background-color: #000;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    margin: 0 auto;
-    height: 172px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+      opacity: 1;
+    }
+    
+
   }
 
   &-description {
-    padding: 20px;
+
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    height: 157px;
+    justify-content: center;
+    align-items: center;
+
   }
 
   &-name {
     color: #fff;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 20px;
-    white-space: nowrap;
+    white-space: wrap;
     text-overflow: ellipsis;
     overflow: hidden;
   }
@@ -103,10 +115,11 @@
   &-rating {
     color: rgb(221, 218, 11);
     font-weight: 450;
-    font-size: 15px;
+    font-size: 30px;
     margin-bottom: 20px;
     white-space: nowrap;
     text-overflow: ellipsis;
+    padding: 10px;
     overflow: hidden;
   }
 
